@@ -1,0 +1,640 @@
+/* =========================================================
+   LUXORA AUTOMOTIVE — SUPER ADMIN DASHBOARD
+   Premium Black & Gold 3D Theme
+========================================================= */
+
+.bmw-sadm-dashboard {
+  --sadm-bg: #090b10;
+  --sadm-surface: #11151d;
+  --sadm-surface-light: #191f29;
+  --sadm-gold: #d8b56d;
+  --sadm-gold-light: #f3dba2;
+  --sadm-text: #f5f5f7;
+  --sadm-muted: #9ca6b5;
+  --sadm-border: rgba(216, 181, 109, 0.2);
+
+  min-height: 100vh;
+  padding: 65px clamp(16px, 4vw, 60px) 60px;
+  color: var(--sadm-text);
+  background:
+    radial-gradient(
+      ellipse at 10% 0%,
+      rgba(216, 181, 109, 0.09),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 100% 40%,
+      rgba(48, 71, 103, 0.12),
+      transparent 35%
+    ),
+    var(--sadm-bg);
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  box-sizing: border-box;
+}
+
+.bmw-sadm-dashboard *,
+.bmw-sadm-dashboard *::before,
+.bmw-sadm-dashboard *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bmw-sadm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto 36px;
+  padding: 22px 28px;
+  border: 1px solid var(--sadm-border);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(25, 31, 41, 0.96),
+    rgba(13, 16, 23, 0.96)
+  );
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.bmw-sadm-eyebrow {
+  margin: 0 0 8px;
+  color: var(--sadm-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.bmw-sadm-header__title {
+  margin: 0;
+  color: var(--sadm-text);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 750;
+  letter-spacing: -1.1px;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   LOGOUT BUTTON
+========================================================= */
+
+.bmw-sadm-btn-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border: 1px solid rgba(216, 181, 109, 0.65);
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--sadm-gold-light),
+    var(--sadm-gold)
+  );
+  color: #17130a;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.bmw-sadm-btn-logout:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(216, 181, 109, 0.22);
+}
+
+.bmw-sadm-btn-logout:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.bmw-sadm-btn-logout:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.bmw-sadm-main {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.bmw-sadm-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--sadm-border);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(26, 32, 42, 0.98),
+      rgba(13, 16, 23, 0.98)
+    );
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.bmw-sadm-card::before {
+  position: absolute;
+  top: -110px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(216, 181, 109, 0.1);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.bmw-sadm-card::after {
+  position: absolute;
+  top: -65px;
+  right: -35px;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(216, 181, 109, 0.08);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.bmw-sadm-card__header {
+  position: relative;
+  z-index: 1;
+}
+
+.bmw-sadm-card__subtitle {
+  margin: 0 0 12px;
+  color: var(--sadm-gold);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.bmw-sadm-card__name {
+  margin: 0 0 12px;
+  color: var(--sadm-text);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+.bmw-sadm-card__header > p:last-child {
+  max-width: 600px;
+  margin: 0;
+  color: var(--sadm-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   PROFILE INFORMATION
+========================================================= */
+
+.bmw-sadm-info-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.bmw-sadm-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.bmw-sadm-info-row > span:first-child {
+  color: var(--sadm-muted);
+  font-size: 13px;
+}
+
+.bmw-sadm-info-row strong {
+  overflow-wrap: anywhere;
+  color: var(--sadm-text);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.bmw-sadm-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border: 1px solid rgba(216, 181, 109, 0.35);
+  border-radius: 999px;
+  background: rgba(216, 181, 109, 0.1);
+  color: var(--sadm-gold-light);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+/* =========================================================
+   API ALERTS
+========================================================= */
+
+.bmw-sadm-alert {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  padding: 14px 17px;
+  border: 1px solid rgba(216, 181, 109, 0.25);
+  border-radius: 12px;
+  background: rgba(216, 181, 109, 0.07);
+  color: var(--sadm-gold-light);
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.bmw-sadm-alert[role="alert"] {
+  border-color: rgba(255, 107, 107, 0.3);
+  background: rgba(255, 80, 80, 0.07);
+  color: #ffb4b4;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.bmw-sadm-section {
+  min-width: 0;
+}
+
+.bmw-sadm-section-heading {
+  margin-bottom: 22px;
+}
+
+.bmw-sadm-section-label {
+  margin: 0 0 9px;
+  color: var(--sadm-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.bmw-sadm-section-heading h2 {
+  margin: 0;
+  color: var(--sadm-text);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 750;
+  letter-spacing: -0.6px;
+}
+
+.bmw-sadm-section-heading > p:last-child {
+  margin: 10px 0 0;
+  color: var(--sadm-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   3D ACTION CARD GRID
+========================================================= */
+
+.bmw-sadm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  perspective: 1200px;
+}
+
+/* =========================================================
+   ACTION CARDS
+========================================================= */
+
+.bmw-sadm-action-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 245px;
+  padding: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 19px;
+  background: linear-gradient(
+    145deg,
+    #191f29 0%,
+    #11151d 58%,
+    #0d1016 100%
+  );
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  color: var(--sadm-text);
+  text-align: left;
+  cursor: pointer;
+  transform: translateY(0) rotateX(0);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.bmw-sadm-action-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--sadm-gold),
+    transparent
+  );
+  opacity: 0;
+  content: "";
+  transition: opacity 0.3s ease;
+}
+
+.bmw-sadm-action-card::after {
+  position: absolute;
+  right: -65px;
+  bottom: -95px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(216, 181, 109, 0.08);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+  transition:
+    transform 0.4s ease,
+    border-color 0.3s ease;
+}
+
+.bmw-sadm-action-card:hover {
+  z-index: 1;
+  border-color: rgba(216, 181, 109, 0.5);
+  background: linear-gradient(
+    145deg,
+    #202733 0%,
+    #141922 60%,
+    #10141b 100%
+  );
+  box-shadow:
+    0 24px 42px rgba(0, 0, 0, 0.38),
+    0 8px 24px rgba(216, 181, 109, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transform: translateY(-7px) rotateX(2deg);
+}
+
+.bmw-sadm-action-card:hover::before {
+  opacity: 1;
+}
+
+.bmw-sadm-action-card:hover::after {
+  border-color: rgba(216, 181, 109, 0.2);
+  transform: scale(1.15);
+}
+
+.bmw-sadm-action-card:active {
+  transform: translateY(-2px);
+}
+
+.bmw-sadm-action-card:focus-visible,
+.bmw-sadm-btn-logout:focus-visible {
+  outline: 2px solid var(--sadm-gold-light);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.bmw-sadm-action-icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 49px;
+  height: 49px;
+  margin-bottom: 23px;
+  padding: 0 9px;
+  border: 1px solid rgba(216, 181, 109, 0.36);
+  border-radius: 14px;
+  background: linear-gradient(
+    145deg,
+    rgba(216, 181, 109, 0.2),
+    rgba(216, 181, 109, 0.045)
+  );
+  box-shadow:
+    0 7px 14px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  color: var(--sadm-gold-light);
+  font-size: 14px;
+  font-weight: 850;
+  letter-spacing: 0.5px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bmw-sadm-action-card:hover .bmw-sadm-action-icon {
+  box-shadow: 0 8px 22px rgba(216, 181, 109, 0.13);
+  transform: translateY(-3px) translateZ(12px);
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.bmw-sadm-action-title {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 11px;
+  color: var(--sadm-text);
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.bmw-sadm-action-description {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 22px;
+  color: var(--sadm-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.bmw-sadm-action-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  color: var(--sadm-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.bmw-sadm-action-card:hover .bmw-sadm-action-link {
+  gap: 12px;
+  color: var(--sadm-gold-light);
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .bmw-sadm-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .bmw-sadm-action-card {
+    min-height: 230px;
+    padding: 23px;
+  }
+
+  .bmw-sadm-header {
+    padding: 22px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .bmw-sadm-dashboard {
+    padding: 18px 14px 36px;
+  }
+
+  .bmw-sadm-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding: 21px 18px;
+    border-radius: 16px;
+  }
+
+  .bmw-sadm-header__title {
+    font-size: 26px;
+    letter-spacing: -0.6px;
+  }
+
+  .bmw-sadm-btn-logout {
+    width: 100%;
+  }
+
+  .bmw-sadm-main {
+    gap: 29px;
+  }
+
+  .bmw-sadm-card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .bmw-sadm-card__name {
+    font-size: 27px;
+  }
+
+  .bmw-sadm-card__header > p:last-child {
+    font-size: 13px;
+  }
+
+  .bmw-sadm-info-list {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin-top: 24px;
+  }
+
+  .bmw-sadm-info-row {
+    padding: 15px;
+  }
+
+  .bmw-sadm-section-heading {
+    margin-bottom: 18px;
+  }
+
+  .bmw-sadm-section-heading h2 {
+    font-size: 24px;
+  }
+
+  .bmw-sadm-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .bmw-sadm-action-card {
+    min-height: 210px;
+    padding: 22px;
+  }
+
+  .bmw-sadm-action-icon {
+    margin-bottom: 18px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .bmw-sadm-dashboard *,
+  .bmw-sadm-dashboard *::before,
+  .bmw-sadm-dashboard *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .bmw-sadm-action-card:hover {
+    transform: none;
+  }
+}

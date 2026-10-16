@@ -1,0 +1,209 @@
+/* =========================================================
+   BMW ADMIN DASHBOARD - UNIQUE SCOPE (.bmw-adm-*)
+========================================================= */
+
+.bmw-adm-dashboard {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #0d1527 0%, #050811 60%, #020408 100%);
+  color: #f8fafc;
+  font-family: inherit;
+  padding-bottom: 60px;
+}
+
+/* --- HEADER --- */
+.bmw-adm-header {
+  min-height: 80px;
+  padding: 0 max(32px, calc((100% - 1360px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(10, 15, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.bmw-adm-header__title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.bmw-adm-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* --- BUTTONS --- */
+.bmw-adm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bmw-adm-btn--primary {
+  background: linear-gradient(135deg, #0066b1, #0284c7);
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 102, 177, 0.35);
+}
+
+.bmw-adm-btn--primary:hover {
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  box-shadow: 0 6px 20px rgba(0, 102, 177, 0.55);
+  transform: translateY(-1px);
+}
+
+.bmw-adm-btn--danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.bmw-adm-btn--danger:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.35);
+  transform: translateY(-1px);
+}
+
+/* --- MAIN CONTAINER --- */
+.bmw-adm-main {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+/* --- ADMIN CARD --- */
+.bmw-adm-card {
+  max-width: 640px;
+  padding: 34px;
+  border-radius: 20px;
+  background: rgba(13, 20, 36, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.bmw-adm-card__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.bmw-adm-card__subtitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.bmw-adm-card__name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* --- USER DETAILS GRID --- */
+.bmw-adm-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.bmw-adm-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.bmw-adm-info-row span {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.bmw-adm-info-row strong {
+  font-size: 13.5px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+/* --- ROLE BADGE --- */
+.bmw-adm-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(0, 102, 177, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* --- API SERVER MESSAGE NOTIFICATION --- */
+.bmw-adm-alert {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  .bmw-adm-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .bmw-adm-header__actions {
+    width: 100%;
+  }
+
+  .bmw-adm-header__actions .bmw-adm-btn {
+    flex: 1;
+  }
+
+  .bmw-adm-main {
+    padding: 24px 16px;
+  }
+
+  .bmw-adm-card {
+    padding: 22px 18px;
+  }
+
+  .bmw-adm-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

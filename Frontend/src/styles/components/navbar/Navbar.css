@@ -1,0 +1,387 @@
+/* =========================================================
+   BMW LUXURY NAVBAR - ISOLATED & MODERN STYLING
+========================================================= */
+
+:root {
+  --bmw-nav-bg: rgba(6, 9, 14, 0.78);
+  --bmw-nav-border: rgba(255, 255, 255, 0.08);
+  --bmw-nav-text-main: #f8fafc;
+  --bmw-nav-text-muted: rgba(248, 250, 252, 0.65);
+  --bmw-nav-accent: #0066b1;       /* BMW Classic Blue */
+  --bmw-nav-accent-glow: rgba(0, 102, 177, 0.35);
+  --bmw-nav-card-bg: rgba(13, 17, 23, 0.94);
+  --bmw-nav-danger: #ef4444;
+  --bmw-nav-danger-bg: rgba(239, 68, 68, 0.12);
+}
+
+.bmw-luxnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 76px;
+  background: var(--bmw-nav-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid var(--bmw-nav-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.bmw-luxnav__inner {
+  width: min(1360px, calc(100% - 48px));
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* --- BRAND --- */
+.bmw-luxnav__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  min-width: 140px;
+}
+
+.bmw-luxnav__brand-mark {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  color: var(--bmw-nav-text-main);
+  background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bmw-luxnav__brand-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--bmw-nav-accent);
+  text-transform: uppercase;
+}
+
+/* --- NAVIGATION LINKS --- */
+.bmw-luxnav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex: 1;
+}
+
+.bmw-luxnav__links a {
+  position: relative;
+  color: var(--bmw-nav-text-muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.bmw-luxnav__links a:hover {
+  color: var(--bmw-nav-text-main);
+}
+
+.bmw-luxnav__links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0066b1, #29b6f6);
+  border-radius: 2px;
+  box-shadow: 0 0 10px #0066b1;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+
+.bmw-luxnav__links a:hover::after {
+  width: 100%;
+}
+
+/* --- PROFILE TRIGGER BUTTON --- */
+.bmw-luxnav__profile {
+  position: relative;
+  min-width: 140px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bmw-luxnav__profile-button {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--bmw-nav-text-main);
+  border-radius: 40px;
+  padding: 5px 14px 5px 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bmw-luxnav__profile-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.06);
+}
+
+.bmw-luxnav__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #38bdf8;
+  font-size: 15px;
+}
+
+.bmw-luxnav__user-name {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.bmw-luxnav__profile-button > svg {
+  font-size: 13px;
+  color: var(--bmw-nav-text-muted);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bmw-luxnav__profile-button > svg.rotate {
+  transform: rotate(180deg);
+  color: var(--bmw-nav-text-main);
+}
+
+/* --- FLOATING DROPDOWN CARD --- */
+.bmw-luxnav__dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--bmw-nav-card-bg);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--bmw-nav-border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.06);
+  transform-origin: top right;
+  animation: bmwDropdownOpen 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bmwDropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- DROPDOWN HEADER --- */
+.bmw-luxnav__dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 6px;
+}
+
+.bmw-luxnav__dropdown-avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0066b1, #0284c7);
+  color: #ffffff;
+  font-size: 17px;
+  box-shadow: 0 4px 12px var(--bmw-nav-accent-glow);
+}
+
+.bmw-luxnav__dropdown-header div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bmw-luxnav__dropdown-header strong {
+  color: var(--bmw-nav-text-main);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bmw-luxnav__dropdown-header small {
+  color: #38bdf8;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* --- PROFILE DETAILS LIST --- */
+.bmw-luxnav__profile-info {
+  padding: 8px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+
+.bmw-luxnav__profile-info div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.bmw-luxnav__profile-info span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--bmw-nav-text-muted);
+}
+
+.bmw-luxnav__profile-info strong {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--bmw-nav-text-main);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- MENU LINKS & BUTTONS --- */
+.bmw-luxnav__menu-item {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--bmw-nav-text-muted);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bmw-luxnav__menu-item svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.bmw-luxnav__menu-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--bmw-nav-text-main);
+}
+
+.bmw-luxnav__menu-item:hover svg {
+  transform: translateX(2px);
+  color: #38bdf8;
+}
+
+.bmw-luxnav__menu-item--primary {
+  background: rgba(0, 102, 177, 0.18);
+  border: 1px solid rgba(0, 102, 177, 0.35);
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.bmw-luxnav__menu-item--primary:hover {
+  background: rgba(0, 102, 177, 0.32);
+  border-color: rgba(0, 102, 177, 0.6);
+  color: #ffffff;
+}
+
+.bmw-luxnav__divider {
+  height: 1px;
+  margin: 6px 4px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bmw-luxnav__logout {
+  color: #f87171;
+}
+
+.bmw-luxnav__logout:hover {
+  color: #ffffff;
+  background: var(--bmw-nav-danger-bg);
+}
+
+.bmw-luxnav__logout:hover svg {
+  color: #f87171;
+  transform: translateX(2px);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 868px) {
+  .bmw-luxnav__inner {
+    width: calc(100% - 32px);
+    gap: 16px;
+  }
+
+  .bmw-luxnav__links {
+    display: none;
+  }
+
+  .bmw-luxnav__brand {
+    flex: 1;
+  }
+
+  .bmw-luxnav__profile {
+    min-width: auto;
+  }
+
+  .bmw-luxnav__user-name {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bmw-luxnav {
+    height: 68px;
+  }
+
+  .bmw-luxnav__dropdown {
+    position: fixed;
+    top: 74px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+}

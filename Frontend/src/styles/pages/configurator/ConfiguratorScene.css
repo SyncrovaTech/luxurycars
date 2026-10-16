@@ -1,0 +1,136 @@
+.bmw-scn {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  min-height: 400px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f3f4f6;
+}
+
+.bmw-scn canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.bmw-scn-hud {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.bmw-scn-hud__swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 50%;
+}
+
+.bmw-scn-hud__warning {
+  max-width: 260px;
+  color: #92400e;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.bmw-scn-hint {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.bmw-scn-hint span {
+  padding: 8px 12px;
+  border: 1px solid rgb(0 0 0 / 8%);
+  border-radius: 30px;
+  background: rgb(255 255 255 / 85%);
+  color: #404040;
+  font-size: 11px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.bmw-scn-loading,
+.bmw-scn-error {
+  display: flex;
+  min-width: 220px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid rgb(0 0 0 / 8%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 95%);
+  color: #262626;
+  font-size: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 8%);
+}
+
+.bmw-scn-error span {
+  color: #737373;
+  line-height: 1.5;
+}
+
+.bmw-scn-loading__spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #e5e5e5;
+  border-top-color: #171717;
+  border-radius: 50%;
+  animation: bmw-scn-spin 0.8s linear infinite;
+}
+
+@keyframes bmw-scn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .bmw-scn {
+    height: 420px;
+    min-height: 350px;
+    border-radius: 12px;
+  }
+
+  .bmw-scn-hud {
+    top: 16px;
+    left: 16px;
+  }
+
+  .bmw-scn-hint {
+    right: 12px;
+    bottom: 12px;
+    gap: 6px;
+  }
+
+  .bmw-scn-hint span {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bmw-scn {
+    height: 360px;
+    min-height: 320px;
+  }
+
+  .bmw-scn-hud__warning {
+    max-width: 200px;
+  }
+}
