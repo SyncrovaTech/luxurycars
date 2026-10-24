@@ -1,0 +1,583 @@
+:root {
+  --bmw-nav-bg: rgba(6, 9, 14, 0.94);
+  --bmw-nav-border: rgba(255, 255, 255, 0.08);
+  --bmw-nav-text-main: #f8fafc;
+  --bmw-nav-text-muted: rgba(248, 250, 252, 0.68);
+  --bmw-nav-accent: #0066b1;
+  --bmw-nav-accent-glow: rgba(0, 102, 177, 0.35);
+  --bmw-nav-card-bg: rgba(13, 17, 23, 0.98);
+  --bmw-nav-danger: #ef4444;
+  --bmw-nav-danger-bg: rgba(239, 68, 68, 0.12);
+}
+
+/* =========================================
+   MAIN NAVBAR
+   ========================================= */
+
+.bmw-luxnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 76px;
+  background: var(--bmw-nav-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid var(--bmw-nav-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease;
+}
+
+.bmw-luxnav__inner {
+  position: relative;
+  width: min(1360px, calc(100% - 48px));
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* =========================================
+   BRAND LOGO
+   ========================================= */
+
+.bmw-luxnav__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 140px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.bmw-luxnav__brand-mark {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bmw-luxnav__brand-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: var(--bmw-nav-accent);
+  text-transform: uppercase;
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+   ========================================= */
+
+.bmw-luxnav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex: 1;
+}
+
+.bmw-luxnav__link {
+  position: relative;
+  color: var(--bmw-nav-text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 8px 0;
+  transition: color 0.25s ease;
+}
+
+.bmw-luxnav__link:hover,
+.bmw-luxnav__link--active {
+  color: var(--bmw-nav-text-main);
+}
+
+.bmw-luxnav__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0066b1, #29b6f6);
+  border-radius: 2px;
+  box-shadow: 0 0 10px #0066b1;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.bmw-luxnav__link:hover::after,
+.bmw-luxnav__link--active::after {
+  width: 100%;
+}
+
+/* =========================================
+   DESKTOP PROFILE
+   ========================================= */
+
+.bmw-luxnav__profile {
+  position: relative;
+  min-width: 140px;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.bmw-luxnav__profile-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px 5px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--bmw-nav-text-main);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bmw-luxnav__profile-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.bmw-luxnav__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #38bdf8;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.bmw-luxnav__user-name {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.bmw-luxnav__profile-button > svg {
+  font-size: 13px;
+  color: var(--bmw-nav-text-muted);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.bmw-luxnav__profile-button > svg.rotate {
+  transform: rotate(180deg);
+  color: var(--bmw-nav-text-main);
+}
+
+/* =========================================
+   DESKTOP DROPDOWN
+   ========================================= */
+
+.bmw-luxnav__dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  width: 300px;
+  max-width: calc(100vw - 24px);
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--bmw-nav-card-bg);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--bmw-nav-border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65),
+              0 0 1px 1px rgba(255, 255, 255, 0.06);
+  transform-origin: top right;
+  animation: bmwDropdownOpen 0.22s ease forwards;
+}
+
+@keyframes bmwDropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.bmw-luxnav__dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bmw-luxnav__dropdown-avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0066b1, #0284c7);
+  color: #ffffff;
+  font-size: 17px;
+  box-shadow: 0 4px 12px var(--bmw-nav-accent-glow);
+}
+
+.bmw-luxnav__dropdown-header div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bmw-luxnav__dropdown-header strong {
+  color: var(--bmw-nav-text-main);
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bmw-luxnav__dropdown-header small {
+  margin-top: 3px;
+  color: #38bdf8;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.bmw-luxnav__menu-item {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--bmw-nav-text-muted);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bmw-luxnav__menu-item svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.bmw-luxnav__menu-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--bmw-nav-text-main);
+}
+
+.bmw-luxnav__menu-item:hover svg {
+  transform: translateX(2px);
+  color: #38bdf8;
+}
+
+.bmw-luxnav__menu-item--primary {
+  margin-bottom: 4px;
+  background: rgba(0, 102, 177, 0.18);
+  border: 1px solid rgba(0, 102, 177, 0.35);
+  color: #ffffff;
+}
+
+.bmw-luxnav__menu-item--primary:hover {
+  background: rgba(0, 102, 177, 0.32);
+  border-color: rgba(0, 102, 177, 0.6);
+}
+
+.bmw-luxnav__divider {
+  height: 1px;
+  margin: 7px 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bmw-luxnav__logout {
+  color: #f87171;
+}
+
+.bmw-luxnav__logout:hover {
+  color: #ffffff;
+  background: var(--bmw-nav-danger-bg);
+}
+
+.bmw-luxnav__logout:hover svg {
+  color: #f87171;
+}
+
+/* =========================================
+   MOBILE COMPONENTS DEFAULT (DESKTOP HIDDEN)
+   ========================================= */
+
+.bmw-luxnav__mobile-wrapper {
+  display: none;
+}
+
+/* =========================================
+   TABLET & MOBILE RESPONSIVE (<= 868px)
+   ========================================= */
+
+@media (max-width: 868px) {
+  .bmw-luxnav {
+    height: 72px;
+  }
+
+  .bmw-luxnav__inner {
+    width: calc(100% - 32px);
+    gap: 12px;
+  }
+
+  /* ડેસ્કટોપ એલિમેન્ટ્સ છુપાવો */
+  .bmw-luxnav__links,
+  .bmw-luxnav__profile {
+    display: none !important;
+  }
+
+  .bmw-luxnav__brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* મોબાઇલ કન્ટેનર એક્ટિવ કરો */
+  .bmw-luxnav__mobile-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .bmw-luxnav__mobile-controls {
+    display: flex;
+  }
+
+  .bmw-luxnav__mobile-toggle {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--bmw-nav-text-main);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .bmw-luxnav__mobile-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .bmw-luxnav__mobile-toggle:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
+  }
+
+  /* મોબાઇલ ડ્રોઅર મેનૂ */
+  .bmw-luxnav__mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    right: -16px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    padding: 16px 18px 24px;
+    background: rgba(8, 12, 18, 0.98);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.7);
+    animation: bmwMobileMenuOpen 0.22s ease forwards;
+  }
+
+  .bmw-luxnav__mobile-user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px 14px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .bmw-luxnav__mobile-user-card strong {
+    color: var(--bmw-nav-text-main);
+    font-size: 14px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bmw-luxnav__mobile-user-card small {
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .bmw-luxnav__mobile-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--bmw-nav-text-muted);
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .bmw-luxnav__mobile-link:hover,
+  .bmw-luxnav__mobile-link--active {
+    background: rgba(0, 102, 177, 0.2);
+    color: #ffffff;
+  }
+
+  .bmw-luxnav__mobile-divider {
+    height: 1px;
+    margin: 8px 4px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .bmw-luxnav__mobile-logout {
+    color: #f87171;
+  }
+
+  .bmw-luxnav__mobile-logout:hover {
+    background: var(--bmw-nav-danger-bg);
+    color: #ffffff;
+  }
+
+  /* LOGIN & REGISTER BUTTONS IN MOBILE DRAWER */
+  .bmw-luxnav__mobile-auth-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .bmw-luxnav__mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .bmw-luxnav__mobile-btn--primary {
+    background: linear-gradient(135deg, #0066b1, #0284c7);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 102, 177, 0.35);
+  }
+
+  .bmw-luxnav__mobile-btn--secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE (<= 480px)
+   ========================================= */
+
+@media (max-width: 480px) {
+  .bmw-luxnav {
+    height: 68px;
+  }
+
+  .bmw-luxnav__inner {
+    width: calc(100% - 20px);
+    gap: 8px;
+  }
+
+  .bmw-luxnav__brand-mark {
+    font-size: 17px;
+    letter-spacing: 1.5px;
+  }
+
+  .bmw-luxnav__brand-text {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .bmw-luxnav__mobile-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .bmw-luxnav__mobile-menu {
+    left: -10px;
+    right: -10px;
+    padding: 14px;
+  }
+}
+
+/* =========================================
+   ANIMATIONS & ACCESSIBILITY
+   ========================================= */
+
+@keyframes bmwMobileMenuOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bmw-luxnav *,
+  .bmw-luxnav *::before,
+  .bmw-luxnav *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,179 @@
+/* =========================================================
+   BMW MANAGER DASHBOARD - UNIQUE SCOPE (.bmw-mng-*)
+========================================================= */
+
+.bmw-mng-dashboard {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #0d1527 0%, #050811 60%, #020408 100%);
+  color: #f8fafc;
+  font-family: inherit;
+  padding-bottom: 60px;
+}
+
+/* --- HEADER --- */
+.bmw-mng-header {
+  min-height: 80px;
+  padding: 0 max(32px, calc((100% - 1360px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(10, 15, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.bmw-mng-header__title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* --- LOGOUT BUTTON --- */
+.bmw-mng-btn-logout {
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bmw-mng-btn-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.35);
+  transform: translateY(-1px);
+}
+
+/* --- MAIN CONTAINER --- */
+.bmw-mng-main {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+/* --- MANAGER PROFILE CARD --- */
+.bmw-mng-card {
+  max-width: 640px;
+  padding: 34px;
+  border-radius: 20px;
+  background: rgba(13, 20, 36, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.bmw-mng-card__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.bmw-mng-card__subtitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.bmw-mng-card__name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* --- USER DETAILS GRID --- */
+.bmw-mng-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.bmw-mng-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.bmw-mng-info-row span {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.bmw-mng-info-row strong {
+  font-size: 13.5px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+/* --- ROLE BADGE --- */
+.bmw-mng-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(0, 102, 177, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* --- ALERT / SERVER MESSAGE --- */
+.bmw-mng-alert {
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  .bmw-mng-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .bmw-mng-btn-logout {
+    width: 100%;
+  }
+
+  .bmw-mng-main {
+    padding: 24px 16px;
+  }
+
+  .bmw-mng-card {
+    padding: 22px 18px;
+  }
+
+  .bmw-mng-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

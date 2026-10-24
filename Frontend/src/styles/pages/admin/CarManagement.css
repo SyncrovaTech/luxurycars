@@ -1,0 +1,533 @@
+.car-mgmt-page {
+  min-height: 100vh;
+  padding: 36px;
+  background: #080b12;
+  color: #f5f7fb;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.car-mgmt-page * {
+  box-sizing: border-box;
+}
+
+.car-mgmt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.car-mgmt-eyebrow {
+  color: #6eafff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.car-mgmt-header h1 {
+  margin: 10px 0;
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+.car-mgmt-header p,
+.car-mgmt-panel-heading p {
+  color: #929bad;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.car-mgmt-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.car-mgmt-stats article {
+  padding: 22px;
+  border: 1px solid #252d3b;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #151b27, #10141d);
+}
+
+.car-mgmt-stats span {
+  display: block;
+  margin-bottom: 12px;
+  color: #a6afbf;
+  font-size: 13px;
+}
+
+.car-mgmt-stats strong {
+  font-size: 29px;
+}
+
+.car-mgmt-panel {
+  padding: 26px;
+  margin-bottom: 25px;
+  border: 1px solid #252d3b;
+  border-radius: 18px;
+  background: #10151f;
+}
+
+.car-mgmt-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.car-mgmt-panel-heading h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.car-mgmt-panel-heading p {
+  font-size: 13px;
+}
+
+.car-mgmt-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #283142;
+}
+
+.car-mgmt-tabs button {
+  padding: 11px 15px;
+  border: 1px solid #303a4c;
+  border-radius: 9px;
+  background: #151c28;
+  color: #b8c2d4;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.car-mgmt-tabs button:hover,
+.car-mgmt-tabs button.active {
+  background: #1769d2;
+  border-color: #3186f6;
+  color: #fff;
+}
+
+.car-mgmt-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.car-mgmt-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: #c6cede;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.car-mgmt-form-grid input:not([type="checkbox"]):not([type="color"]),
+.car-mgmt-form-grid select,
+.car-mgmt-form-grid textarea,
+.car-mgmt-search {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid #30394a;
+  border-radius: 9px;
+  outline: none;
+  background: #0b1019;
+  color: #f5f7fb;
+  font: inherit;
+  font-weight: 400;
+  transition: border-color 0.2s ease;
+}
+
+.car-mgmt-form-grid input:focus,
+.car-mgmt-form-grid select:focus,
+.car-mgmt-form-grid textarea:focus,
+.car-mgmt-search:focus {
+  border-color: #438df4;
+}
+
+.car-mgmt-form-grid textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.car-mgmt-full-width {
+  grid-column: 1 / -1;
+}
+
+.car-mgmt-checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 10px !important;
+  min-height: 42px;
+}
+
+.car-mgmt-checkbox input {
+  width: 17px;
+  height: 17px;
+  accent-color: #287be5;
+}
+
+.car-mgmt-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 25px;
+  margin-top: 28px;
+  border-top: 1px solid #283142;
+}
+
+.car-mgmt-primary-btn,
+.car-mgmt-secondary-btn {
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.car-mgmt-primary-btn {
+  border: 1px solid #3989f5;
+  background: #1769d2;
+  color: white;
+}
+
+.car-mgmt-primary-btn:hover {
+  background: #287be5;
+}
+
+.car-mgmt-primary-btn:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.car-mgmt-secondary-btn {
+  border: 1px solid #394355;
+  background: #171e2a;
+  color: #e5eaf3;
+}
+
+.car-mgmt-secondary-btn:hover {
+  background: #222d3d;
+}
+
+.car-mgmt-option-sections {
+  display: grid;
+  gap: 24px;
+}
+
+.car-mgmt-option-panel {
+  padding: 20px;
+  border: 1px solid #2b3546;
+  border-radius: 13px;
+  background: #0d121b;
+}
+
+.car-mgmt-option-heading,
+.car-mgmt-option-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.car-mgmt-option-heading {
+  margin-bottom: 18px;
+}
+
+.car-mgmt-option-heading h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.car-mgmt-add-option,
+.car-mgmt-remove-option {
+  padding: 8px 11px;
+  border: 1px solid #364257;
+  border-radius: 7px;
+  background: #192334;
+  color: #dce7f9;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.car-mgmt-add-option:hover {
+  border-color: #418cf1;
+  background: #17365d;
+}
+
+.car-mgmt-remove-option {
+  border-color: #643b45;
+  background: #301a20;
+  color: #ffb7c0;
+}
+
+.car-mgmt-option-card {
+  padding: 18px;
+  margin-top: 14px;
+  border: 1px solid #293447;
+  border-radius: 11px;
+  background: #121a27;
+}
+
+.car-mgmt-option-card-header {
+  padding-bottom: 15px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #293447;
+}
+
+.car-mgmt-option-empty {
+  color: #8e9ab0;
+  font-size: 13px;
+}
+
+.car-mgmt-color-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 43px;
+  padding: 5px 10px;
+  border: 1px solid #30394a;
+  border-radius: 9px;
+  background: #0b1019;
+}
+
+.car-mgmt-color-input input[type="color"] {
+  width: 34px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.car-mgmt-color-input span {
+  color: #d8dfeb;
+  font-family: monospace;
+}
+
+.car-mgmt-alert {
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.car-mgmt-alert-error {
+  border: 1px solid #813d49;
+  background: #30171d;
+  color: #ffb9c1;
+}
+
+.car-mgmt-alert-success {
+  border: 1px solid #286a50;
+  background: #102b21;
+  color: #9cebc4;
+}
+
+.car-mgmt-search {
+  max-width: 280px;
+}
+
+.car-mgmt-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.car-mgmt-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.car-mgmt-table th {
+  padding: 15px 13px;
+  border-bottom: 1px solid #30394a;
+  color: #8997ad;
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.car-mgmt-table td {
+  padding: 16px 13px;
+  border-bottom: 1px solid #232c3b;
+  color: #d5dcea;
+  font-size: 13px;
+}
+
+.car-mgmt-table tbody tr:hover {
+  background: #151d2a;
+}
+
+.car-mgmt-vehicle {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 230px;
+}
+
+.car-mgmt-vehicle img,
+.car-mgmt-image-placeholder {
+  width: 75px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #202a3a;
+}
+
+.car-mgmt-image-placeholder {
+  display: grid;
+  place-items: center;
+  color: #7db8ff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.car-mgmt-vehicle strong,
+.car-mgmt-vehicle span {
+  display: block;
+}
+
+.car-mgmt-vehicle strong {
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.car-mgmt-vehicle span {
+  color: #8f9db2;
+  font-size: 12px;
+}
+
+.car-mgmt-featured {
+  display: inline-block;
+  margin-top: 5px;
+  color: #f1c66d;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.car-mgmt-status {
+  display: inline-block;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.car-mgmt-status.is-active {
+  background: #123528;
+  color: #8de6b7;
+}
+
+.car-mgmt-status.is-inactive {
+  background: #34252a;
+  color: #ffb0b8;
+}
+
+.car-mgmt-row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.car-mgmt-row-actions button {
+  padding: 8px 10px;
+  border: 1px solid #354259;
+  border-radius: 7px;
+  background: #1a2638;
+  color: #dce9fb;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.car-mgmt-row-actions button:hover {
+  background: #263750;
+}
+
+.car-mgmt-row-actions button.danger-action {
+  border-color: #6c3944;
+  background: #311b22;
+  color: #ffb6c0;
+}
+
+.car-mgmt-row-actions button.activate-action {
+  border-color: #286a50;
+  background: #123528;
+  color: #a0ebc4;
+}
+
+.car-mgmt-loading,
+.car-mgmt-empty {
+  padding: 40px 15px;
+  color: #9aa7bb;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .car-mgmt-page {
+    padding: 24px;
+  }
+
+  .car-mgmt-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .car-mgmt-page {
+    padding: 16px;
+  }
+
+  .car-mgmt-header,
+  .car-mgmt-panel-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .car-mgmt-panel {
+    padding: 17px;
+  }
+
+  .car-mgmt-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .car-mgmt-full-width {
+    grid-column: auto;
+  }
+
+  .car-mgmt-search {
+    max-width: none;
+  }
+
+  .car-mgmt-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .car-mgmt-tabs button {
+    min-height: 42px;
+  }
+
+  .car-mgmt-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .car-mgmt-form-actions button {
+    width: 100%;
+  }
+}
+

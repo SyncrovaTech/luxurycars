@@ -1,0 +1,312 @@
+.showroom-management {
+  min-height: 100vh;
+  padding: 85px;
+  background: #090d15;
+  color: #f4f6fa;
+}
+
+.showroom-management__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.showroom-management__eyebrow {
+  color: #75dad8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.showroom-management__header h1 {
+  margin: 12px 0;
+  font-size: clamp(27px, 3vw, 38px);
+}
+
+.showroom-management__header p,
+.showroom-management__form-heading p {
+  color: #9da8b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.showroom-management__add {
+  min-height: 45px;
+  padding: 0 18px;
+  border: 1px solid #75dad8;
+  border-radius: 6px;
+  background: #75dad8;
+  color: #071116;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.showroom-management__notice,
+.showroom-management__error {
+  margin-bottom: 20px;
+  padding: 14px 17px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.showroom-management__notice {
+  border: 1px solid #247e6c;
+  background: rgba(36, 126, 108, 0.12);
+  color: #85e6cd;
+}
+
+.showroom-management__error {
+  border: 1px solid #a94452;
+  background: rgba(169, 68, 82, 0.12);
+  color: #ff9eaa;
+}
+
+.showroom-management__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.showroom-management__stats > div {
+  padding: 22px;
+  border: 1px solid #252d3b;
+  border-radius: 10px;
+  background: #111620;
+}
+
+.showroom-management__stats span {
+  display: block;
+  margin-bottom: 12px;
+  color: #9da8b8;
+  font-size: 13px;
+}
+
+.showroom-management__stats strong {
+  font-size: 29px;
+}
+
+.showroom-management__table-panel,
+.showroom-management__form-panel {
+  overflow: hidden;
+  border: 1px solid #252d3b;
+  border-radius: 12px;
+  background: #111620;
+}
+
+.showroom-management__form-panel {
+  padding: 25px;
+}
+
+.showroom-management__form-heading {
+  margin-bottom: 25px;
+}
+
+.showroom-management__form-heading h2 {
+  margin-bottom: 8px;
+}
+
+.showroom-management__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 23px;
+}
+
+.showroom-management__toolbar h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.showroom-management__toolbar input {
+  width: min(100%, 370px);
+  min-height: 43px;
+  padding: 0 13px;
+  border: 1px solid #343d4d;
+  border-radius: 6px;
+  outline: none;
+  background: #090d15;
+  color: #fff;
+  font-size: 13px;
+}
+
+.showroom-management__toolbar input:focus {
+  border-color: #75dad8;
+}
+
+.showroom-management__table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.showroom-management__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.showroom-management__table th,
+.showroom-management__table td {
+  padding: 17px 20px;
+  border-top: 1px solid #252d3b;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+.showroom-management__table th {
+  background: #0c111a;
+  color: #aeb7c6;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.showroom-management__table td {
+  color: #dbe0e9;
+}
+
+.showroom-management__table td a {
+  color: #75dad8;
+  text-decoration: none;
+}
+
+.showroom-management__name {
+  min-width: 170px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.showroom-management__slug,
+.showroom-management__muted {
+  margin-top: 6px;
+  color: #8792a3;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.showroom-status {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.showroom-status--active {
+  background: rgba(42, 174, 125, 0.12);
+  color: #68dcb0;
+}
+
+.showroom-status--inactive {
+  background: rgba(150, 157, 172, 0.13);
+  color: #b7c0cf;
+}
+
+.showroom-management__actions {
+  display: flex;
+  min-width: 240px;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.showroom-management__actions button {
+  padding: 7px 9px;
+  border: 1px solid #343d4d;
+  border-radius: 5px;
+  background: #171e2a;
+  color: #e4e9f1;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.showroom-management__actions button:hover {
+  border-color: #75dad8;
+  color: #75dad8;
+}
+
+.showroom-management__actions .showroom-management__delete {
+  color: #ff9eaa;
+}
+
+.showroom-management__state {
+  padding: 65px 20px;
+  color: #aeb7c6;
+  text-align: center;
+}
+
+.showroom-management__state h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.showroom-management__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 23px;
+  border-top: 1px solid #252d3b;
+  color: #aeb7c6;
+  font-size: 12px;
+}
+
+.showroom-management__pagination > div {
+  display: flex;
+  gap: 8px;
+}
+
+.showroom-management__pagination button {
+  padding: 9px 13px;
+  border: 1px solid #343d4d;
+  border-radius: 5px;
+  background: #171e2a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.showroom-management__pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 850px) {
+  .showroom-management {
+    padding: 20px;
+  }
+
+  .showroom-management__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .showroom-management__toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .showroom-management__toolbar input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 550px) {
+  .showroom-management__header {
+    flex-direction: column;
+  }
+
+  .showroom-management__add {
+    width: 100%;
+  }
+
+  .showroom-management__form-panel {
+    padding: 15px;
+  }
+
+  .showroom-management__pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const auth_middleware_js_1 = require("../../core/middleware/auth.middleware.js");
+const user_model_js_1 = require("../users/user.model.js");
+const upload_middleware_js_1 = require("./upload.middleware.js");
+const upload_controller_js_1 = require("./upload.controller.js");
+const router = (0, express_1.Router)();
+router.post("/car-assets", auth_middleware_js_1.authenticate, (0, auth_middleware_js_1.authorize)(user_model_js_1.UserRole.ADMIN, user_model_js_1.UserRole.SUPER_ADMIN), upload_middleware_js_1.uploadCarAssets, upload_controller_js_1.uploadCarAssetsHandler);
+exports.default = router;

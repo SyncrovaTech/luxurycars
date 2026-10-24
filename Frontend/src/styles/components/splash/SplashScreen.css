@@ -1,0 +1,200 @@
+.bmw-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease 0.1s, visibility 0.5s ease 0.1s;
+}
+
+.bmw-intro--closing {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+.bmw-intro__background {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #181a20 0%, #050608 50%, #000 85%);
+}
+
+.bmw-intro__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* =========================================================
+   100% WORKING ZOOM ANIMATION
+   0s - 1.2s  : લોગો નોર્મલ આવશે
+   1.2s - 2.1s: સ્ક્રીન પર હોલ્ડ રહેશે
+   2.1s - 3.1s: સુપર ઝૂમ થઈને (scale 45) સ્ક્રીન ઓળંગશે
+========================================================= */
+.bmw-intro__zoom-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoZoomThrough 3.1s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+@keyframes logoZoomThrough {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  68% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    /* આ સ્કેલ લોગોને આખી સ્ક્રીનની બહાર ધકેલી દેશે */
+    transform: scale(45);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+/* =========================
+   LOGO & RINGS
+========================= */
+.bmw-intro__logo-wrapper {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bmw-intro__logo {
+  position: relative;
+  z-index: 5;
+  width: 145px;
+  height: 145px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.35));
+}
+
+.bmw-intro__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.bmw-intro__ring--outer { width: 190px; height: 190px; }
+.bmw-intro__ring--middle { width: 170px; height: 170px; border-color: rgba(255, 255, 255, 0.25); }
+.bmw-intro__ring--inner { width: 155px; height: 155px; border-color: rgba(255, 255, 255, 0.35); }
+
+/* =========================================================
+   TEXT - ઝૂમ શરૂ થતાં જ ગાયબ થઈ જશે
+========================================================= */
+.bmw-intro__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: textFadeOut 3s ease forwards;
+}
+
+@keyframes textFadeOut {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85%, 100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+.bmw-intro__line {
+  width: 190px;
+  height: 1px;
+  margin-top: 28px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+.bmw-intro__title {
+  margin: 16px 0 0;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 12px;
+  padding-left: 12px;
+}
+
+.bmw-intro__subtitle {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+/* =========================
+   BOTTOM LOADER
+========================= */
+.bmw-intro__loader {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  width: 120px;
+  height: 1.5px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  z-index: 3;
+}
+
+.bmw-intro__loader span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #fff;
+  animation: loaderProgress 2.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes loaderProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 600px) {
+  .bmw-intro__logo-wrapper { width: 150px; height: 150px; }
+  .bmw-intro__logo { width: 110px; height: 110px; }
+  .bmw-intro__ring--outer { width: 150px; height: 150px; }
+  .bmw-intro__ring--middle { width: 135px; height: 135px; }
+  .bmw-intro__ring--inner { width: 120px; height: 120px; }
+  .bmw-intro__title { font-size: 20px; letter-spacing: 8px; }
+}

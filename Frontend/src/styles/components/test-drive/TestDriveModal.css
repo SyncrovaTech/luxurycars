@@ -1,0 +1,704 @@
+/* =========================================================
+   D-LUXURY CAR SHOWROOM
+   TEST DRIVE MODAL
+   File: TestDriveModal.css
+========================================================= */
+
+.bmw-tdm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(2, 6, 15, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  overflow-y: auto;
+
+  animation: bmwTdmOverlayIn 0.25s ease both;
+}
+
+/* =========================================================
+   MODAL CONTAINER
+========================================================= */
+
+.bmw-tdm-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - 48px);
+
+  padding: 36px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  color: #f5f7ff;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.15),
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      #111a2b 0%,
+      #0b1220 55%,
+      #080d18 100%
+    );
+
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.6),
+    0 0 45px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  animation: bmwTdmModalIn 0.3s ease both;
+
+  scrollbar-width: thin;
+  scrollbar-color: #344766 #0b1220;
+}
+
+.bmw-tdm-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bmw-tdm-modal::-webkit-scrollbar-track {
+  background: #0b1220;
+  border-radius: 10px;
+}
+
+.bmw-tdm-modal::-webkit-scrollbar-thumb {
+  background: #344766;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.bmw-tdm-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+  padding: 0;
+
+  color: #cbd5e1;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bmw-tdm-close:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(239, 68, 68, 0.16);
+  border-color: rgba(248, 113, 113, 0.5);
+  transform: rotate(90deg);
+}
+
+.bmw-tdm-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bmw-tdm-header {
+  padding-right: 28px;
+  margin-bottom: 28px;
+}
+
+.bmw-tdm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 12px;
+
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.bmw-tdm-eyebrow::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 25px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #2563eb
+  );
+
+  border-radius: 4px;
+}
+
+.bmw-tdm-header h2 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+.bmw-tdm-header p {
+  margin: 0;
+
+  color: #9eacc2;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   SELECTED VEHICLE
+========================================================= */
+
+.bmw-tdm-car {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-bottom: 22px;
+  padding: 17px 19px;
+
+  background: linear-gradient(
+    115deg,
+    rgba(37, 99, 235, 0.15),
+    rgba(15, 23, 42, 0.55)
+  );
+
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  border-left: 3px solid #3b82f6;
+  border-radius: 12px;
+}
+
+.bmw-tdm-car span {
+  color: #8fa6c8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.bmw-tdm-car strong {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.bmw-tdm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+
+  width: 100%;
+}
+
+.bmw-tdm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  min-width: 0;
+  width: 100%;
+}
+
+.bmw-tdm-field > span {
+  color: #d8e2f1;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.25px;
+}
+
+/* =========================================================
+   INPUTS, SELECT, TEXTAREA
+========================================================= */
+
+.bmw-tdm-input,
+.bmw-tdm-select,
+.bmw-tdm-textarea {
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+
+  padding: 12px 14px;
+
+  color: #f8fafc;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 450;
+
+  background: rgba(4, 10, 22, 0.72);
+
+  border: 1px solid #29374d;
+  border-radius: 10px;
+  outline: none;
+
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.bmw-tdm-input::placeholder,
+.bmw-tdm-textarea::placeholder {
+  color: #697991;
+  opacity: 1;
+}
+
+.bmw-tdm-input:hover:not(:disabled),
+.bmw-tdm-select:hover:not(:disabled),
+.bmw-tdm-textarea:hover:not(:disabled) {
+  border-color: #405473;
+}
+
+.bmw-tdm-input:focus,
+.bmw-tdm-select:focus,
+.bmw-tdm-textarea:focus {
+  background: rgba(8, 17, 34, 0.95);
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.15),
+    inset 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.bmw-tdm-input:disabled,
+.bmw-tdm-select:disabled,
+.bmw-tdm-textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.bmw-tdm-input[type="date"],
+.bmw-tdm-input[type="time"] {
+  color-scheme: dark;
+}
+
+.bmw-tdm-select {
+  cursor: pointer;
+}
+
+.bmw-tdm-select option {
+  color: #f8fafc;
+  background: #101a2b;
+}
+
+.bmw-tdm-textarea {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   DATE AND TIME ROW
+========================================================= */
+
+.bmw-tdm-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   SHOWROOM INFORMATION
+========================================================= */
+
+.bmw-tdm-showroom-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-top: -9px;
+  padding: 15px 16px;
+
+  color: #a9b8ce;
+  font-size: 12px;
+  line-height: 1.7;
+
+  background: rgba(15, 23, 42, 0.7);
+
+  border: 1px solid rgba(71, 85, 105, 0.45);
+  border-radius: 10px;
+
+  overflow-wrap: anywhere;
+}
+
+.bmw-tdm-showroom-info strong {
+  color: #dceaff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.bmw-tdm-showroom-info span {
+  display: block;
+}
+
+/* =========================================================
+   ERROR AND SUCCESS MESSAGES
+========================================================= */
+
+.bmw-tdm-error,
+.bmw-tdm-success {
+  margin: -2px 0 0;
+  padding: 12px 14px;
+
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.65;
+
+  overflow-wrap: anywhere;
+
+  border-radius: 9px;
+}
+
+.bmw-tdm-error {
+  color: #fca5a5;
+
+  background: rgba(127, 29, 29, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.32);
+}
+
+.bmw-tdm-success {
+  color: #86efac;
+
+  background: rgba(20, 83, 45, 0.2);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.bmw-tdm-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 5px;
+  padding-top: 21px;
+
+  border-top: 1px solid rgba(148, 163, 184, 0.13);
+}
+
+.bmw-tdm-secondary,
+.bmw-tdm-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 47px;
+  padding: 12px 21px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.bmw-tdm-secondary {
+  color: #d2dceb;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid #344258;
+}
+
+.bmw-tdm-secondary:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #536680;
+}
+
+.bmw-tdm-submit {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb 0%,
+    #1d4ed8 55%,
+    #1e40af 100%
+  );
+
+  border: 1px solid rgba(96, 165, 250, 0.48);
+
+  box-shadow:
+    0 7px 20px rgba(37, 99, 235, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.bmw-tdm-submit:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #2563eb 55%,
+    #1d4ed8 100%
+  );
+
+  box-shadow:
+    0 9px 26px rgba(37, 99, 235, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  transform: translateY(-1px);
+}
+
+.bmw-tdm-secondary:active:not(:disabled),
+.bmw-tdm-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.bmw-tdm-secondary:disabled,
+.bmw-tdm-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.bmw-tdm-close:focus-visible,
+.bmw-tdm-secondary:focus-visible,
+.bmw-tdm-submit:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+.bmw-tdm-field input:focus-visible,
+.bmw-tdm-field select:focus-visible,
+.bmw-tdm-field textarea:focus-visible {
+  outline: none;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes bmwTdmOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bmwTdmModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 640px) {
+  .bmw-tdm-overlay {
+    align-items: center;
+    padding: 16px;
+  }
+
+  .bmw-tdm-modal {
+    max-width: 520px;
+    max-height: calc(100vh - 32px);
+
+    padding: 28px 23px;
+
+    border-radius: 18px;
+  }
+
+  .bmw-tdm-header {
+    margin-bottom: 23px;
+    padding-right: 25px;
+  }
+
+  .bmw-tdm-header h2 {
+    font-size: 27px;
+  }
+
+  .bmw-tdm-form {
+    gap: 17px;
+  }
+
+  .bmw-tdm-row {
+    gap: 12px;
+  }
+
+  .bmw-tdm-actions {
+    gap: 10px;
+  }
+
+  .bmw-tdm-secondary,
+  .bmw-tdm-submit {
+    padding: 12px 15px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .bmw-tdm-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .bmw-tdm-modal {
+    max-height: calc(100dvh - 24px);
+
+    margin: auto 0;
+    padding: 25px 17px 20px;
+
+    border-radius: 16px;
+  }
+
+  .bmw-tdm-close {
+    top: 13px;
+    right: 13px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+  .bmw-tdm-header {
+    padding-right: 18px;
+    margin-bottom: 21px;
+  }
+
+  .bmw-tdm-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .bmw-tdm-header h2 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .bmw-tdm-header p {
+    font-size: 12px;
+  }
+
+  .bmw-tdm-car {
+    padding: 14px;
+  }
+
+  .bmw-tdm-car strong {
+    font-size: 15px;
+  }
+
+  .bmw-tdm-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  .bmw-tdm-input,
+  .bmw-tdm-select,
+  .bmw-tdm-textarea {
+    font-size: 13px;
+  }
+
+  .bmw-tdm-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .bmw-tdm-secondary,
+  .bmw-tdm-submit {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .bmw-tdm-overlay,
+  .bmw-tdm-modal {
+    animation: none;
+  }
+
+  .bmw-tdm-close,
+  .bmw-tdm-secondary,
+  .bmw-tdm-submit,
+  .bmw-tdm-input,
+  .bmw-tdm-select,
+  .bmw-tdm-textarea {
+    transition: none;
+  }
+}

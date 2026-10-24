@@ -1,0 +1,341 @@
+/* =========================================
+   D-LUXURY CAR SHOWROOM
+   Car Asset Upload — Premium UI
+========================================= */
+
+.car-asset-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 28px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212, 175, 55, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(145deg, #151515, #090909);
+  color: #f5f5f5;
+  box-sizing: border-box;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  font-family: inherit;
+}
+
+/* Heading */
+
+.car-asset-upload h3 {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  color: #d4af37;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+/* Form Labels */
+
+.car-asset-upload label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* File Input */
+
+.car-asset-upload input[type="file"] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px dashed rgba(212, 175, 55, 0.55);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #d4d4d4;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.car-asset-upload input[type="file"]:hover {
+  border-color: #e8c75a;
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.car-asset-upload input[type="file"]:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 3px;
+}
+
+.car-asset-upload input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 9px 13px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 7px;
+  background: #d4af37;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.car-asset-upload
+  input[type="file"]::file-selector-button:hover {
+  background: #f0d36b;
+}
+
+/* Main Image Preview */
+
+.car-asset-upload__preview {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: 260px;
+  padding: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  background: #101010;
+  object-fit: contain;
+  box-sizing: border-box;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.car-asset-upload__preview:hover {
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+/* Gallery Grid */
+
+.car-asset-upload__gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(105px, 1fr)
+  );
+  gap: 12px;
+  width: 100%;
+}
+
+/* Gallery Images */
+
+.car-asset-upload__gallery img {
+  display: block;
+  width: 100%;
+  height: 105px;
+  padding: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 10px;
+  background: #101010;
+  object-fit: cover;
+  box-sizing: border-box;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.car-asset-upload__gallery img:hover {
+  transform: scale(1.04);
+  border-color: #d4af37;
+  box-shadow: 0 5px 18px rgba(212, 175, 55, 0.12);
+}
+
+/* Selected Model Information */
+
+.car-asset-upload > p:not(
+  .car-asset-upload__error
+):not(
+  .car-asset-upload__success
+) {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.06);
+  color: #e8d18a;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* Error Message */
+
+.car-asset-upload__error {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 90, 90, 0.35);
+  border-radius: 8px;
+  background: rgba(198, 40, 40, 0.1);
+  color: #ff8585;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* Success Message */
+
+.car-asset-upload__success {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(72, 187, 120, 0.35);
+  border-radius: 8px;
+  background: rgba(33, 115, 70, 0.12);
+  color: #7ee2a8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Upload Button */
+
+.car-asset-upload button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-height: 46px;
+  padding: 12px 22px;
+  border: 1px solid #d4af37;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #e8c75a, #bd9630);
+  color: #101010;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.car-asset-upload button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #f5dc7c, #d4af37);
+  box-shadow: 0 7px 20px rgba(212, 175, 55, 0.2);
+}
+
+.car-asset-upload button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.car-asset-upload button:focus-visible {
+  outline: 2px solid #f5dc7c;
+  outline-offset: 4px;
+}
+
+.car-asset-upload button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Responsive: Tablet */
+
+@media (max-width: 768px) {
+  .car-asset-upload {
+    gap: 17px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  .car-asset-upload h3 {
+    font-size: 21px;
+  }
+
+  .car-asset-upload__preview {
+    height: 230px;
+  }
+
+  .car-asset-upload__gallery {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(90px, 1fr)
+    );
+    gap: 10px;
+  }
+
+  .car-asset-upload__gallery img {
+    height: 90px;
+  }
+}
+
+/* Responsive: Mobile */
+
+@media (max-width: 480px) {
+  .car-asset-upload {
+    gap: 15px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .car-asset-upload h3 {
+    padding-bottom: 12px;
+    font-size: 19px;
+  }
+
+  .car-asset-upload label {
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .car-asset-upload input[type="file"] {
+    padding: 9px;
+    font-size: 12px;
+  }
+
+  .car-asset-upload input[type="file"]::file-selector-button {
+    margin-right: 7px;
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .car-asset-upload__preview {
+    height: 190px;
+    padding: 6px;
+  }
+
+  .car-asset-upload__gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .car-asset-upload__gallery img {
+    height: 85px;
+    border-radius: 7px;
+  }
+
+  .car-asset-upload button {
+    width: 100%;
+    align-self: stretch;
+    padding: 12px 14px;
+  }
+}
+
+/* Reduced Motion Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .car-asset-upload *,
+  .car-asset-upload *::before,
+  .car-asset-upload *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
